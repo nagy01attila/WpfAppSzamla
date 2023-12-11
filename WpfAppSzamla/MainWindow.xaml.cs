@@ -91,19 +91,19 @@ namespace WpfAppSzamla
         {
             if (dgTetelek.SelectedItem != null)
             {
-                // Ellenőrizzük, hogy van-e kiválasztott tétel a DataGrid-ben
+                
                 int selectedIndex = dgTetelek.SelectedIndex;
 
-                // Módosítjuk a kiválasztott tételt az adatok alapján
+                
                 tetelek[selectedIndex].TermekNev = txtNev.Text;
                 tetelek[selectedIndex].EgysegAr = int.Parse(txtAr.Text);
                 tetelek[selectedIndex].Egyseg = cbEgyseg.SelectedItem.ToString();
                 tetelek[selectedIndex].Mennyiseg = sliMennyiseg.Value;
 
-                // Frissítjük a DataGrid-et
+               
                 dgTetelek.Items.Refresh();
 
-                // Számoljuk újra a kosár értékét
+               
                 kosarErtek = 0;
                 foreach (var tetel in tetelek)
                 {
@@ -120,17 +120,17 @@ namespace WpfAppSzamla
         {
             if (dgTetelek.SelectedItem != null)
             {
-                // Ellenőrizzük, hogy van-e kiválasztott tétel a DataGrid-ben
+               
                 int selectedIndex = dgTetelek.SelectedIndex;
 
-                // Kiválasztott tétel törlése a listából
+               
                 tetelek.RemoveAt(selectedIndex);
 
-                // Frissítjük a DataGrid-et
+                
                 dgTetelek.ItemsSource = null;
                 dgTetelek.ItemsSource = tetelek;
 
-                // Számoljuk újra a kosár értékét
+                
                 kosarErtek = 0;
                 foreach (var tetel in tetelek)
                 {
